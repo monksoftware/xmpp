@@ -314,8 +314,6 @@ namespace XMPP.common
             if (_socketElevator != null) _socketElevator.Cancel();
             if (_socketReader != null) _socketReader.Cancel();
             if (_socketWriter != null) _socketWriter.Cancel();
-
-            _socket.Dispose();
         }
 
         private void ConnectionError(ErrorType type, ErrorPolicyType policy, string cause = "")
