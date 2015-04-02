@@ -178,6 +178,7 @@ namespace XMPP.Tags.Jabber.Client
             none,
             error,
             probe,
+            available,
             subscribe,
             subscribed,
             unavailable,

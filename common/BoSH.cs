@@ -6,6 +6,7 @@ using System.Xml.Linq;
 using Windows.Storage.Streams;
 using Windows.Web.Http;
 using Windows.Web.Http.Headers;
+using XMPP.Ñommon;
 using XMPP.States;
 using XMPP.Tags;
 using XMPP.Tags.Bosh;

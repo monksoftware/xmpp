@@ -1,4 +1,4 @@
-// --------------------------------------------------------------------------------------------------------------------
+﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="" file="Manager.cs">
 //   
 // </copyright>
@@ -13,9 +13,10 @@ using System.Threading;
 using XMPP.Common;
 using XMPP.SASL;
 using XMPP.States;
+using XMPP.Сommon;
 
 // ReSharper disable once CheckNamespace
-namespace XMPP.�ommon
+namespace XMPP.Ñommon
 {
     /// <summary>
     /// The manager.

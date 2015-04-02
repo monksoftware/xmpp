@@ -1,4 +1,4 @@
-// --------------------------------------------------------------------------------------------------------------------
+ï»¿// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="" file="Connection.cs">
 //   
 // </copyright>
@@ -27,9 +27,10 @@ using XMPP.Extensions;
 using XMPP.Registries;
 using XMPP.States;
 using XMPP.Tags;
+using XMPP.Ð¡ommon;
 using Buffer = Windows.Storage.Streams.Buffer;
 
-namespace XMPP.Ñommon
+namespace XMPP.Ã‘ommon
 {
     #region helper
 
@@ -331,7 +332,7 @@ namespace XMPP.Ñommon
             if (_socketReader != null) _socketReader.Cancel();
             if (_socketWriter != null) _socketWriter.Cancel();
 
-            _socket.Dispose();
+            //_socket.Dispose();
         }
 
         private void ConnectionError(ErrorType type, ErrorPolicyType policy, string cause = "")

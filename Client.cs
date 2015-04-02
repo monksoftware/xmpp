@@ -1,4 +1,4 @@
-// --------------------------------------------------------------------------------------------------------------------
+﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="" file="Client.cs">
 //   
 // </copyright>
@@ -13,7 +13,8 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using XMPP.Tags;
-using XMPP.�ommon;
+using XMPP.Ñommon;
+using XMPP.Сommon;
 
 namespace XMPP
 {
