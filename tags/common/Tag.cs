@@ -36,7 +36,7 @@ namespace XMPP.Tags
             InnerElement = new XElement(other);
         }
 
-        public XElement InnerElement { get; set; }
+        protected XElement InnerElement { get; private set; }
 
         public byte[] Bytes
         {
