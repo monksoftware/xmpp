@@ -36,7 +36,25 @@ namespace XMPP.Tags
             InnerElement = new XElement(other);
         }
 
-        protected XElement InnerElement { get; private set; }
+        public XElement InnerElement { get; private set; }
+
+        public void Add(XElement element)
+        {
+            InnerElement.Add(element);
+        }
+
+        public void Add(Tag tag)
+        {
+            InnerElement.Add(tag.InnerElement);
+        }
+
+        public void Add(List<Tag> tags)
+        {
+            foreach (var tag in tags)
+            {
+                Add(tag);
+            }
+        }
 
         public byte[] Bytes
         {
@@ -63,6 +81,18 @@ namespace XMPP.Tags
             }
 
             return default(object);
+        }
+
+        public string GetAttributeValueAsString(XName name)
+        {
+            object value = GetAttributeValue(name);
+
+            if (null != value)
+            {
+                return value.ToString();
+            }
+
+            return null;
         }
 
         public int? GetAttributeValueAsInt(XName name)

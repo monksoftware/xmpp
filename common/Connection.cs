@@ -140,7 +140,7 @@ namespace XMPP.Ñommon
 
         public void Send(Tag tag)
         {
-            Send(tag.ToString());
+            Send(tag.InnerElement.ToString());
         }
 
         public void Send(string message)
