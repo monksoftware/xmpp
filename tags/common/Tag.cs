@@ -45,7 +45,7 @@ namespace XMPP.Tags
 
         public void Add(Tag tag)
         {
-            InnerElement.Add(tag.InnerElement);
+            Add(tag.InnerElement);
         }
 
         public void Add(List<Tag> tags)
