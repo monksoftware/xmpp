@@ -19,7 +19,8 @@ namespace XMPP.States
 {
     public class SessionState : IState
     {
-        public SessionState(Manager manager) : base(manager)
+        public SessionState(Manager manager)
+            : base(manager)
         {
         }
 
@@ -47,9 +48,6 @@ namespace XMPP.States
                 }
 
                 Manager.State = new RunningState(Manager);
-
-                var presence = new Presence();
-                Manager.Connection.Send(presence);
             }
         }
     }
