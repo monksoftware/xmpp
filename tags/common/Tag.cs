@@ -26,12 +26,12 @@ namespace XMPP.Tags
     {
         private static int _packetCounter;
 
-        protected Tag(XName identity)
+        public Tag(XName identity)
         {
             InnerElement = new XElement(identity);
         }
 
-        protected Tag(XElement other)
+        public Tag(XElement other)
         {
             InnerElement = new XElement(other);
         }

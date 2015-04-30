@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
 using XMPP.Registries;
+using XMPP.Tags.Jabber.Protocol.Archive;
 
 namespace XMPP.Tags.Jabber.Client
 {
@@ -20,16 +21,16 @@ namespace XMPP.Tags.Jabber.Client
     {
         public const string XmlNamespace = "jabber:client";
 
-        public static readonly XName Message = XName.Get("message", XmlNamespace);
-        public static readonly XName Iq = XName.Get("iq", XmlNamespace);
         public static readonly XName Presence = XName.Get("presence", XmlNamespace);
         public static readonly XName Priority = XName.Get("priority", XmlNamespace);
-        public static readonly XName Show = XName.Get("show", XmlNamespace);
-        public static readonly XName Status = XName.Get("status", XmlNamespace);
-        public static readonly XName Body = XName.Get("body", XmlNamespace);
         public static readonly XName Subject = XName.Get("subject", XmlNamespace);
+        public static readonly XName Message = XName.Get("message", XmlNamespace);
+        public static readonly XName Status = XName.Get("status", XmlNamespace);
         public static readonly XName Thread = XName.Get("thread", XmlNamespace);
         public static readonly XName Error = XName.Get("error", XmlNamespace);
+        public static readonly XName Body = XName.Get("body", XmlNamespace);
+        public static readonly XName Show = XName.Get("show", XmlNamespace);
+        public static readonly XName Iq = XName.Get("iq", XmlNamespace);
     }
 
     [XmppTag(typeof(Namespace), typeof(Message))]
@@ -101,6 +102,11 @@ namespace XMPP.Tags.Jabber.Client
         public IEnumerable<Error> ErrorElements
         {
             get { return Elements<Error>(Namespace.Error); }
+        }
+
+        public IEnumerable<Result> Result
+        {
+            get { return Elements<Result>(XMPP.Tags.Jabber.Protocol.Archive.Namespace.Result); }
         }
 
         public string Body

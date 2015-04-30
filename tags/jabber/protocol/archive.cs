@@ -8,6 +8,7 @@
 // 
 // --------------------------------------------------------------------------------------------------------------------
 
+using System.Collections.Generic;
 using System.Xml.Linq;
 using XMPP.Registries;
 
@@ -17,14 +18,14 @@ namespace XMPP.Tags.Jabber.Protocol.Archive
     {
         public const string XmlNamespace = "urn:xmpp:mam:tmp";
 
-        public static readonly XName Query = XName.Get("query", XmlNamespace);
-        public static readonly XName With = XName.Get("with", XmlNamespace);
-        public static readonly XName Start = XName.Get("start", XmlNamespace);
-        public static readonly XName End = XName.Get("end", XmlNamespace);
         public static readonly XName Result = XName.Get("result", XmlNamespace);
-        public static readonly XName Prefs = XName.Get("prefs", XmlNamespace);
         public static readonly XName Always = XName.Get("always", XmlNamespace);
+        public static readonly XName Prefs = XName.Get("prefs", XmlNamespace);
         public static readonly XName Never = XName.Get("never", XmlNamespace);
+        public static readonly XName Query = XName.Get("query", XmlNamespace);
+        public static readonly XName Start = XName.Get("start", XmlNamespace);
+        public static readonly XName With = XName.Get("with", XmlNamespace);
+        public static readonly XName End = XName.Get("end", XmlNamespace);
         public static readonly XName Jid = XName.Get("jid", XmlNamespace);
     }
 
@@ -103,6 +104,11 @@ namespace XMPP.Tags.Jabber.Protocol.Archive
         {
             get { return (string)GetAttributeValue("id"); }
             set { InnerElement.SetAttributeValue("id", value); }
+        }
+
+        public IEnumerable<Forwarded.Forwarded> Forwarded
+        {
+            get { return Elements<Forwarded.Forwarded>(XMPP.Tags.Jabber.Protocol.Forwarded.Namespace.Forwarded); }
         }
     }
 

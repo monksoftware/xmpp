@@ -11,6 +11,7 @@
 using System.Xml.Linq;
 using XMPP.Registries;
 using XMPP.Tags.Jabber.Client;
+using XMPP.Tags.Xmpp.Delay;
 
 namespace XMPP.Tags.Jabber.Protocol.Forwarded
 {
@@ -35,6 +36,11 @@ namespace XMPP.Tags.Jabber.Protocol.Forwarded
         public Message MessageElement
         {
             get { return Element<Message>(Client.Namespace.Message); }
+        }
+
+        public Delay Delay
+        {
+            get { return Element<Delay>(XMPP.Tags.Xmpp.Delay.Namespace.Delay); }
         }
 
         public Presence PresenceElement
