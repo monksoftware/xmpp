@@ -70,7 +70,8 @@ namespace XMPP.Tags
 
         public static string NextId()
         {
-            return string.Format("U{0}", Interlocked.Increment(ref _packetCounter));
+            string id = DateTime.UtcNow.ToString("yyyyMMddhhmmssffff");
+            return string.Format("{0}{1}", id, Interlocked.Increment(ref _packetCounter));
         }
 
         public static implicit operator string(Tag tag)
