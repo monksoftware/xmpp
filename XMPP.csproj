@@ -5,7 +5,7 @@
     <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{273E84BC-90A7-4653-B412-0AB862A369D2}</ProjectGuid>
+    <ProjectGuid>{0D8B90C2-D55D-4871-837C-F9566D487E37}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>XMPP</RootNamespace>
@@ -15,6 +15,8 @@
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkProfile>Profile32</TargetFrameworkProfile>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,16 +36,148 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <TargetPlatform Include="WindowsPhoneApp, Version=8.1" />
     <TargetPlatform Include="Windows, Version=8.1" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Client.cs" />
+    <Compile Include="common\BoSH.cs" />
+    <Compile Include="common\Connection.cs" />
+    <Compile Include="common\IConnection.cs" />
+    <Compile Include="common\Manager.cs" />
+    <Compile Include="common\Parser.cs" />
+    <Compile Include="compression\ICompression.cs" />
+    <Compile Include="compression\sharpziplib\Checksums\Adler32.cs" />
+    <Compile Include="compression\sharpziplib\Checksums\CRC32.cs" />
+    <Compile Include="compression\sharpziplib\Checksums\IChecksum.cs" />
+    <Compile Include="compression\sharpziplib\Checksums\StrangeCRC.cs" />
+    <Compile Include="compression\sharpziplib\Properties\AssemblyInfo.cs" />
+    <Compile Include="compression\sharpziplib\SharpZipBaseException.cs" />
+    <Compile Include="compression\sharpziplib\Zip\Compression\Deflater.cs" />
+    <Compile Include="compression\sharpziplib\Zip\Compression\DeflaterConstants.cs" />
+    <Compile Include="compression\sharpziplib\Zip\Compression\DeflaterEngine.cs" />
+    <Compile Include="compression\sharpziplib\Zip\Compression\DeflaterHuffman.cs" />
+    <Compile Include="compression\sharpziplib\Zip\Compression\DeflaterPending.cs" />
+    <Compile Include="compression\sharpziplib\Zip\Compression\Inflater.cs" />
+    <Compile Include="compression\sharpziplib\Zip\Compression\InflaterDynHeader.cs" />
+    <Compile Include="compression\sharpziplib\Zip\Compression\InflaterHuffmanTree.cs" />
+    <Compile Include="compression\sharpziplib\Zip\Compression\PendingBuffer.cs" />
+    <Compile Include="compression\sharpziplib\Zip\Compression\Streams\OutputWindow.cs" />
+    <Compile Include="compression\sharpziplib\Zip\Compression\Streams\StreamManipulator.cs" />
+    <Compile Include="compression\sharpziplib\Zlib.cs" />
+    <Compile Include="Events.cs" />
+    <Compile Include="extensions\ByteExtensions.cs" />
+    <Compile Include="extensions\idn\CombiningClass.cs" />
+    <Compile Include="extensions\idn\Composition.cs" />
+    <Compile Include="extensions\idn\DecompositionKeys.cs" />
+    <Compile Include="extensions\idn\DecompositionMappings.cs" />
+    <Compile Include="extensions\idn\IDNA.cs" />
+    <Compile Include="extensions\idn\IDNAException.cs" />
+    <Compile Include="extensions\idn\NFKC.cs" />
+    <Compile Include="extensions\idn\Punycode.cs" />
+    <Compile Include="extensions\idn\PunycodeException.cs" />
+    <Compile Include="extensions\idn\RFC3454.cs" />
+    <Compile Include="extensions\idn\Stringprep.cs" />
+    <Compile Include="extensions\idn\StringprepException.cs" />
+    <Compile Include="JID.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="registries\CompressionRegistry.cs" />
+    <Compile Include="registries\Static.cs" />
+    <Compile Include="registries\TagRegistry.cs" />
+    <Compile Include="SASL\MD5Processor.cs" />
+    <Compile Include="SASL\PlainProcessor.cs" />
+    <Compile Include="SASL\SASLProcessor.cs" />
+    <Compile Include="SASL\SCRAMProcessor.cs" />
+    <Compile Include="SASL\XOAUTH2Processor.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="states\BindingState.cs" />
+    <Compile Include="states\ClosedState.cs" />
+    <Compile Include="states\CompressedState.cs" />
+    <Compile Include="states\ConnectedState.cs" />
+    <Compile Include="states\ConnectingState.cs" />
+    <Compile Include="states\DisconnectState.cs" />
+    <Compile Include="states\IState.cs" />
+    <Compile Include="states\RunningState.cs" />
+    <Compile Include="states\SASLState.cs" />
+    <Compile Include="states\ServerFeaturesState.cs" />
+    <Compile Include="states\SessionState.cs" />
+    <Compile Include="states\StartTLSState.cs" />
+    <Compile Include="tags\bosh\bosh.cs" />
+    <Compile Include="tags\common\Extensions.cs" />
+    <Compile Include="tags\common\Tag.cs" />
+    <Compile Include="tags\common\TagHandler.cs" />
+    <Compile Include="tags\jabber\client.cs" />
+    <Compile Include="tags\jabber\Expression.cs" />
+    <Compile Include="tags\jabber\features\amp.cs" />
+    <Compile Include="tags\jabber\features\compress.cs" />
+    <Compile Include="tags\jabber\iq\auth.cs" />
+    <Compile Include="tags\jabber\iq\gateway.cs" />
+    <Compile Include="tags\jabber\iq\last.cs" />
+    <Compile Include="tags\jabber\iq\oob.cs" />
+    <Compile Include="tags\jabber\iq\privacy.cs" />
+    <Compile Include="tags\jabber\iq\private.cs" />
+    <Compile Include="tags\jabber\iq\register.cs" />
+    <Compile Include="tags\jabber\iq\roster.cs" />
+    <Compile Include="tags\jabber\iq\search.cs" />
+    <Compile Include="tags\jabber\iq\version.cs" />
+    <Compile Include="tags\jabber\protocol\activity.cs" />
+    <Compile Include="tags\jabber\protocol\address.cs" />
+    <Compile Include="tags\jabber\protocol\amp.cs" />
+    <Compile Include="tags\jabber\protocol\ampXerrors.cs" />
+    <Compile Include="tags\jabber\protocol\archive.cs" />
+    <Compile Include="tags\jabber\protocol\Bookmarks.cs" />
+    <Compile Include="tags\jabber\protocol\bytestreams.cs" />
+    <Compile Include="tags\jabber\protocol\caps.cs" />
+    <Compile Include="tags\jabber\protocol\chatstates.cs" />
+    <Compile Include="tags\jabber\protocol\compress.cs" />
+    <Compile Include="tags\jabber\protocol\discoXinfo.cs" />
+    <Compile Include="tags\jabber\protocol\discoXitems.cs" />
+    <Compile Include="tags\jabber\protocol\forwarded.cs" />
+    <Compile Include="tags\jabber\protocol\nick.cs" />
+    <Compile Include="tags\jabber\protocol\offline.cs" />
+    <Compile Include="tags\jabber\protocol\resultset.cs" />
+    <Compile Include="tags\jabber\protocol\xhtml_im.cs" />
+    <Compile Include="tags\jabber\x\conference.cs" />
+    <Compile Include="tags\jabber\x\dataforms.cs" />
+    <Compile Include="tags\jabber\x\delay.cs" />
+    <Compile Include="tags\muc\muc.cs" />
+    <Compile Include="tags\muc\muc_admin.cs" />
+    <Compile Include="tags\muc\muc_owner.cs" />
+    <Compile Include="tags\muc\muc_user.cs" />
+    <Compile Include="tags\streams.cs" />
+    <Compile Include="tags\vcard_temp\vcard-temp.cs" />
+    <Compile Include="tags\vcard_temp\x\update.cs" />
+    <Compile Include="tags\xhtml.cs" />
+    <Compile Include="tags\xml.cs" />
+    <Compile Include="tags\xmlns.cs" />
+    <Compile Include="tags\xmpp\archive.cs" />
+    <Compile Include="tags\xmpp\avatar\data.cs" />
+    <Compile Include="tags\xmpp\avatar\metadata.cs" />
+    <Compile Include="tags\xmpp\delay.cs" />
+    <Compile Include="tags\xmpp\feature.cs" />
+    <Compile Include="tags\xmpp\features\rosterver.cs" />
+    <Compile Include="tags\xmpp\list.cs" />
+    <Compile Include="tags\xmpp\ping.cs" />
+    <Compile Include="tags\xmpp\time.cs" />
+    <Compile Include="tags\xmpp_bind.cs" />
+    <Compile Include="tags\xmpp_sasl.cs" />
+    <Compile Include="tags\xmpp_session.cs" />
+    <Compile Include="tags\xmpp_stanzas.cs" />
+    <Compile Include="tags\xmpp_streams.cs" />
+    <Compile Include="tags\xmpp_tls.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Net.Http.Extensions, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net45+win8+wpa81\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net45+win8+wpa81\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />

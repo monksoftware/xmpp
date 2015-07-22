@@ -48,7 +48,7 @@ namespace XMPP.Ñommon
         /// <summary>
         /// The settings.
         /// </summary>
-        public readonly Settings Settings = new Settings();
+        public Settings Settings = new Settings();
 
         /// <summary>
         /// The _state.

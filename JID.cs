@@ -17,6 +17,7 @@ namespace XMPP
 {
     public class Jid : IComparable
     {
+        private string _mucServer;
         private string _resource;
         private string _server;
         private string _user;
@@ -31,6 +32,14 @@ namespace XMPP
         {
             User = string.IsNullOrEmpty(user) ? string.Empty : user;
             Server = string.IsNullOrEmpty(server) ? string.Empty : server;
+            Resource = string.IsNullOrEmpty(resource) ? string.Empty : resource;
+        }
+
+        public Jid(string user, string server, string mucServer, string resource)
+        {
+            User = string.IsNullOrEmpty(user) ? string.Empty : user;
+            Server = string.IsNullOrEmpty(server) ? string.Empty : server;
+            MucServer = string.IsNullOrEmpty(mucServer) ? string.Empty : mucServer;
             Resource = string.IsNullOrEmpty(resource) ? string.Empty : resource;
         }
 
@@ -66,6 +75,12 @@ namespace XMPP
         {
             get { return _server; }
             set { _server = (value == null) ? null : Stringprep.NamePrep(value); }
+        }
+
+        public string MucServer
+        {
+            get { return _mucServer; }
+            set { _mucServer = (value == null) ? null : Stringprep.NamePrep(value); }
         }
 
         public string Resource

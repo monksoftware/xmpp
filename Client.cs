@@ -48,6 +48,7 @@ namespace XMPP
         public Settings Settings
         {
             get { return _manager.Settings; }
+            set { _manager.Settings = value; }
         }
 
         public bool Connected
