@@ -9,6 +9,7 @@ namespace XMPP.Tags.Muc.Admin
         public const string XmlNamespace = "http://jabber.org/protocol/muc#admin";
 
         public static readonly XName Query = XName.Get("query", XmlNamespace);
+        public static readonly XName Iq = XName.Get("iq", XmlNamespace);
         public static readonly XName Item = XName.Get("item", XmlNamespace);
         public static readonly XName Actor = XName.Get("actor", XmlNamespace);
         public static readonly XName Reason = XName.Get("reason", XmlNamespace);
@@ -31,6 +32,56 @@ namespace XMPP.Tags.Muc.Admin
         {
             get { return Elements<Item>(Namespace.Item); }
         }
+    }
+
+    [XmppTag(typeof(Namespace), typeof(Iq))]
+    public class Iq : Tag
+    {
+        public Iq()
+            : base(Namespace.Iq)
+        {
+        }
+
+        public Iq(XElement other)
+            : base(other)
+        {
+        }
+
+        public string FromAttr
+        {
+            get { return (string)GetAttributeValue("from"); }
+            set { InnerElement.SetAttributeValue("from", value); }
+        }
+
+        public string ToAttr
+        {
+            get { return (string)GetAttributeValue("to"); }
+            set { InnerElement.SetAttributeValue("to", value); }
+        }
+
+        public string IdAttr
+        {
+            get { return (string)GetAttributeValue("id"); }
+            set { InnerElement.SetAttributeValue("id", value); }
+        }
+
+        public TypeEnum TypeAttr
+        {
+            get { return GetAttributeEnum<TypeEnum>("type"); }
+            set { SetAttributeEnum<TypeEnum>("type", value); }
+        }
+
+        public string JidAttr
+        {
+            get { return (string)GetAttributeValue("jid"); }
+            set { InnerElement.SetAttributeValue("jid", value); }
+        }
+    }
+
+    public enum TypeEnum
+    {
+        get,
+        set
     }
 
     public enum AffiliationEnum

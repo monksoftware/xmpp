@@ -39,6 +39,13 @@ namespace XMPP.Tags.Jabber.Protocol.Archive
         public Query(XElement other) : base(other)
         {
         }
+
+        public string IdAttr
+        {
+            get { return (string)GetAttributeValue("id"); }
+            set { InnerElement.SetAttributeValue("id", value); }
+        }
+
     }
 
     [XmppTag(typeof(Namespace), typeof(With))]

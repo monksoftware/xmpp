@@ -20,7 +20,11 @@ namespace XMPP.Tags.Jabber.Client
     public class Namespace
     {
         public const string XmlNamespace = "jabber:client";
-
+        public const string RequestNamespace = "urn:xmpp:receipts";
+        
+        public static readonly XName Archived = XName.Get("archived", RequestNamespace);
+        public static readonly XName Received = XName.Get("received", RequestNamespace);
+        public static readonly XName Request = XName.Get("request", RequestNamespace);
         public static readonly XName Presence = XName.Get("presence", XmlNamespace);
         public static readonly XName Priority = XName.Get("priority", XmlNamespace);
         public static readonly XName Subject = XName.Get("subject", XmlNamespace);
@@ -31,6 +35,57 @@ namespace XMPP.Tags.Jabber.Client
         public static readonly XName Body = XName.Get("body", XmlNamespace);
         public static readonly XName Show = XName.Get("show", XmlNamespace);
         public static readonly XName Iq = XName.Get("iq", XmlNamespace);
+
+    }
+
+    [XmppTag(typeof(Namespace), typeof(Archived))]
+    public class Archived : Tag
+    {
+        public Archived() : base(Namespace.Archived)
+        {
+        }
+
+        public Archived(XElement other) : base(other)
+        {
+        }
+
+        public string IdAttr
+        {
+            get { return (string)GetAttributeValue("id"); }
+            set { InnerElement.SetAttributeValue("id", value); }
+        }
+
+    }
+
+    [XmppTag(typeof(Namespace), typeof(Received))]
+    public class Received : Tag
+    {
+        public Received() : base(Namespace.Received)
+        {
+        }
+
+        public Received(XElement other) : base(other)
+        {
+        }
+
+        public string IdAttr
+        {
+            get { return (string)GetAttributeValue("id"); }
+            set { InnerElement.SetAttributeValue("id", value); }
+        }
+
+    }
+
+    [XmppTag(typeof(Namespace), typeof(Request))]
+    public class Request : Tag
+    {
+        public Request() : base(Namespace.Request)
+        {
+        }
+
+        public Request(XElement other) : base(other)
+        {
+        }
     }
 
     [XmppTag(typeof(Namespace), typeof(Message))]
@@ -156,7 +211,6 @@ namespace XMPP.Tags.Jabber.Client
             set { InnerElement.SetAttributeValue(XName.Get("lang", Xml.Namespace.XmlNamespace), value); }
         }
     }
-
 
     [XmppTag(typeof(Namespace), typeof(Thread))]
     public class Thread : Tag
